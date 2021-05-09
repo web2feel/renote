@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/renote/static/css/main.09b9d364.chunk.css",
-    "main.js": "/renote/static/js/main.77375b26.chunk.js",
-    "main.js.map": "/renote/static/js/main.77375b26.chunk.js.map",
+    "main.js": "/renote/static/js/main.59a73be9.chunk.js",
+    "main.js.map": "/renote/static/js/main.59a73be9.chunk.js.map",
     "runtime-main.js": "/renote/static/js/runtime-main.421d736e.js",
     "runtime-main.js.map": "/renote/static/js/runtime-main.421d736e.js.map",
     "static/js/2.50a6cbaa.chunk.js": "/renote/static/js/2.50a6cbaa.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.421d736e.js",
     "static/js/2.50a6cbaa.chunk.js",
     "static/css/main.09b9d364.chunk.css",
-    "static/js/main.77375b26.chunk.js"
+    "static/js/main.59a73be9.chunk.js"
   ]
 }
