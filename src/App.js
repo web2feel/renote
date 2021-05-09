@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllNotes } from "./Store/Notes/NoteSlice";
+import "./App.css";
+import Notes from "./Components/Notes";
+import Layout from "./Components/Layout";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllNotes());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App bg-gradient-to-b from-gray-50 to-gray-200">
+      <Layout>
+        <Header />
+        <Notes />
+        <Footer />
+      </Layout>
     </div>
   );
 }
