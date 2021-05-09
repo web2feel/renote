@@ -5,7 +5,7 @@ function Footer() {
         <div>
           <p>Renote - An offline notes app </p>
           <p>Made with ReactJS, Redux Toolkit, TailwindCSS </p>
-          <p>Find on Github </p>
+          <p>Find on <a href="https://github.com/web2feel/renote">Github </a> </p>
         </div>
       </div>
     </div>
