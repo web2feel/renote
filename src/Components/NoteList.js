@@ -23,6 +23,7 @@ function NoteList() {
       <div className="max-w-screen-xl mx-auto py-12">
         <div className="bg-red-100 border border-red-300 p-6 rounded-lg text-center text-red-700 text-xl shadow-md">
           Something went wrong!
+          <p>{error}</p>
         </div>
       </div>
     );

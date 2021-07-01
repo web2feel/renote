@@ -2,15 +2,11 @@ import Localbase from "localbase";
 let db = new Localbase("db");
 
 // Get all Notes
-
 export async function getNotes() {
-  try {
-    let users = await db.collection("notes").get();
-    (users.length === 0) && new Error("No Notes")
-    return users.reverse();
-  } catch (error) {
-    console.log("error: ", error);
-  }
+  let notes = await db.collection("notes").get()
+  .then( res => res.reverse())
+  .catch( error => error.message)
+  return notes
 }
 
 // Add New Note

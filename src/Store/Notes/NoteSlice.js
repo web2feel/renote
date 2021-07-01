@@ -4,7 +4,7 @@ export const getAllNotes = createAsyncThunk("notes/getAllNotes", getNotes);
 
 const NoteSlice = createSlice({
   name: "notes",
-  initialState: { data: [], loading: false, error: null, posting:false },
+  initialState: { data: [], loading: false, error: null, posting: false },
   reducers: {
     add_note: (state, action) => {
       let newNote = {
@@ -14,39 +14,38 @@ const NoteSlice = createSlice({
         content: action.payload.content,
       };
       insertNote(newNote);
-      return {...state, data: [ newNote,...state.data] };
+      state.data.unshift(newNote);
     },
     delete_note: (state, action) => {
       deleteNote(action.payload.id);
-      return {
-        ...state,
-        data: [...state.data.filter((note) => note.id !== action.payload.id)],
-      };
+      state.data = state.data.filter((note) => note.id !== action.payload.id);
     },
-    posting_note:( state) => {
-      return { ...state, posting:true}
+    posting_note: (state) => {
+      state.posting = true;
     },
-    cancelling_note:( state) => {
-      return { ...state, posting:false}
-    }
+    cancelling_note: (state) => {
+      state.posting = false;
+    },
   },
   extraReducers: {
     [getAllNotes.pending]: (state) => {
-      return { ...state, loading: true, error: null };
+      state.loading = true
     },
+
     [getAllNotes.fulfilled]: (state, action) => {
-      return {
-        ...state,
-        data: [...action.payload],
-        loading: false,
-      };
+      state.loading = false
+      state.data = action.payload
+
     },
+
     [getAllNotes.rejected]: (state, action) => {
-      return { ...state, error: action.error.message, loading: false };
+      state.loading = false
+      state.error = action.error.message
     },
-  },
+  } 
+
 });
 
-export const { add_note, delete_note, posting_note, cancelling_note } = NoteSlice.actions;
+export const { add_note, delete_note, posting_note, cancelling_note } =  NoteSlice.actions;
 
 export default NoteSlice.reducer;
